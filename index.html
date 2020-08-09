@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link href="style.css" rel="stylesheet" type="text/css" />
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
@@ -13,20 +15,21 @@
   <body>
     <h1 class="text-center pb-3 pt-5">Follow-Up Instructions</h1>
 
-    <form class="text-center">
+    <div class="alert">Your message has been sent!</div>
+
+
+
+    <form class="mainForm text-center">
       <div class="row justify-content-md-center">
         <div class="col col-lg-4">
           <div class="form-group text-center ml-3 mr-3">
             <label for="handout">Handout</label>
-              <select class="form-control" id="handout">
+              <select class="handoutToSend form-control" id="handout">
                 <option value="http://thrombosiscanada.ca/wp-content/uploads/2016/10/M159-You-Have-Afib_Oct2016.pdf">Atrial Fibrillation (Thrombosis Canada)</option>
                 <option value="https://www.heart.org/-/media/data-import/downloadables/3/9/2/pe-afib-faqs-of-atrial-fibrillation-ucm_424424.pdf">Atrial Fibrillation (Heart.org)</option>
                 <option value="https://www.ninds.nih.gov/Disorders/Patient-Caregiver-Education/Fact-Sheets/Bells-Palsy-Fact-Sheet">Bell's Palsy (NIDS)</option>
                 <option value="https://jamanetwork.com/journals/jama/articlepdf/2707462/jama_baiu_2018_pg_180032.pdf">Biliary Colic (JAMA)</option>
-
-
-                <option
-                value="https://www.handouts.ca/ONF-DoDonts-Tearaway-WEB-1.pdf">Concussion Do & Don't (Ontario Neurotrauma)</option>
+                <option value="https://www.handouts.ca/ONF-DoDonts-Tearaway-WEB-1.pdf">Concussion Do & Don't (Ontario Neurotrauma)</option>
                 <option value="https://parachute.ca/wp-content/uploads/2019/06/Return-to-School-Strategy.pdf">Concussion: Return to School (Parachute)</option>
                 <option value="https://www.publichealthontario.ca/-/media/documents/ncov/factsheet-covid-19-how-to-self-isolate.pdf?la=en">COVID19: Self Isolation (PHO)</option>
                 <option value="https://www.publichealthontario.ca/-/media/documents/ncov/factsheet-covid-19-self-monitor.pdf?la=en">COVID19: Self Monitoring (PHO)</option>
@@ -46,34 +49,13 @@
         <div class="col col-lg-4">
           <div class="form-group text-center ml-3 mr-3">
             <label for="phoneNumber">Phone Number</label>
-            <input type="tel" class="form-control" id="phoneNumber" placeholder="705-555-1234">
+            <input type="tel" class="sendNumber form-control" id="phoneNumber" placeholder="705-555-1234">
           </div>
         </div>
       </div>
 
-      <div class="row justify-content-center">
-        <div class="form-inline">
-          <label for="areaCode"></label>
-          <input type="text" class="form-control col-sm-1" id="areaCode" placeholder="705">
-
-          <label for="areaCode">-</label>
-          <input type="text" class="form-control col-sm-1" id="exchange" placeholder="555">
-
-          <label for="areaCode">-</label>
-          <input type="text" class="form-control col-sm-2" id="exchange" placeholder="5555">
-        </div>
-      </div>
-
-
-
-
-  
-
-
-
-
-
-      <button type="submit" class="btn btn-primary">Send</button>
+     
+      <button class="sendButton btn btn-primary">Send</button>
 
 
     </form>
