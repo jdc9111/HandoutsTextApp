@@ -1,7 +1,3 @@
-
-
-console.log('it works');
-
 const sendButton = document.querySelector('.sendButton');
 const mainForm=document.querySelector('.mainForm');
 
@@ -50,16 +46,47 @@ const inputElement = document.getElementById('phoneNumber');
 inputElement.addEventListener('keydown',enforceFormat);
 inputElement.addEventListener('keyup',formatToPhone);
 
+async function sendMessage(number, message) {
+    try { 
+        const response = await fetch(`https://twilio-handouts.herokuapp.com/${number}`, { 
+            method: 'POST', 
+            headers: { 
+                'content-type': 'application/json',
+                'apiKey': 'abc123',
+            },
+            body: JSON.stringify({ 
+                message: `Please click here for your health care instructions:
 
+${message}
 
-
+This is an automated message. Please do not respond to this number. Call 9-1-1 in case of emergency.`,
+            })
+        }) 
+        const data = await response.json();
+        setTimeout(function(){
+            document.querySelector('.alert').style.display='none';
+        }, 3000);
+    } catch (err) {
+        console.log('uh oh there was an error');
+    }
+}
 
 function handleSend(e) {
     e.preventDefault();
     
     console.log ('Sending!');
 
-    phoneNumber = document.querySelector('.sendNumber').value;
+    let phoneNumber = document.querySelector('.sendNumber').value;
+    phoneNumber = phoneNumber
+        .split(' ')
+        .join('')
+        .split('(')
+        .join('')
+        .split(')')
+        .join('')
+        .split('-')
+        .join('');
+    phoneNumber = `+1${phoneNumber}`
     console.log(phoneNumber);
 
     handout = document.querySelector('.handoutToSend').value;
@@ -69,16 +96,7 @@ function handleSend(e) {
     document.querySelector('.alert').style.display = 'block';
 
     // hide alert after 3 seconds
-    setTimeout(function(){
-        document.querySelector('.alert').style.display='none';
-    },3000);
-
+    sendMessage(phoneNumber, handout);
 };
 
-
-
 mainForm.addEventListener('submit', handleSend);
-
-
-
-
